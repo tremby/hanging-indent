@@ -19,6 +19,7 @@ for (let i = 0; i < 25; i++) {
       .replace(/\s{2}\r/g, ' ')
   )
 }
+texts.push('a bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbc'); // 51-character word
 
 describe('params', () => {
   describe('indent', () => {
