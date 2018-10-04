@@ -19,6 +19,7 @@ for (let i = 0; i < 25; i++) {
       .replace(/\s{2}\r/g, ' ')
   )
 }
+texts.push('Some text\nwith newline characters\nin it.');
 
 describe('params', () => {
   describe('indent', () => {
@@ -76,5 +77,16 @@ describe('lines', () => {
       .map(lengths => {
         assert.isFalse(lengths.every(length => length === 80))
       })
+  })
+})
+
+describe('newlines', () => {
+  it('newlines should be treated properly', () => {
+    assert.equal(hangingIndent(`A${' a'.repeat(50)}\nB${' b'.repeat(50)}`),
+        'A a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a\n'
+      + '    a a a a a a a a a a a\n'
+      + '    B b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b\n'
+      + '    b b b b b b b b b b b'
+    )
   })
 })
