@@ -18,7 +18,7 @@ module.exports = function hangingIndent(line, indent, limit, accum) {
   // if line is too long
   if (line.length > limit) {
     // get longest possible substring from line
-    const reverseSlice = line.slice(0, limit).split('').reverse('')
+    const reverseSlice = line.slice(0, limit).split('').reverse()
     const firstSpace = reverseSlice.indexOf(' ')
     const longest = reverseSlice.slice(firstSpace + 1).reverse().join('')
     const rem = ' '.repeat(indent) + line.slice(longest.length + 1)
